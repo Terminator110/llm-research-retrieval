@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *.so
+/home/john/llm-rag-baseline/src/embedding/vector_store.py
 
 # Virtual environment
 .venv/
@@ -34,3 +35,4 @@ Thumbs.db
 
 # FOLDER TREE
 folder_tree.txt
+src/embedding/vector_store.py

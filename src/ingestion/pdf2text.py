@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import re
 
 import requests
 import pymupdf
@@ -44,6 +45,14 @@ def download_pdf(url: str, output_path: Path):
 
     print(f"Saved: {output_path}")
 
+def normalize_text(text: str) -> str:
+    """Normalize text by removing extra whitespace and line breaks."""
+
+    # Remove extra whitespace and line breaks.
+    clean_text = re.sub(r" {3,}", "  ", text)
+
+    return clean_text
+
 
 
 def extract_pdf(pdf_path: Path) -> dict:
@@ -57,12 +66,14 @@ def extract_pdf(pdf_path: Path) -> dict:
 
         for page_number, page in enumerate(document, start=1):
 
+            clean_flags = pymupdf.TEXTFLAGS_TEXT & ~pymupdf.TEXT_PRESERVE_LIGATURES
             text = page.get_text(
                 "text",
+                flags=clean_flags,
                 sort=True,
             )
 
-            # text = normalize_text(text)
+            text = normalize_text(text)
 
             pages.append(
                 {
@@ -77,7 +88,6 @@ def extract_pdf(pdf_path: Path) -> dict:
         "source_file": pdf_path.name,
         "pages": pages,
     }
-
 
 
 def save_extracted_text(
