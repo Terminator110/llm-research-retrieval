@@ -73,6 +73,7 @@ def main():
     )
 
     for chunk, embedding in zip(all_chunks, embeddings):
+        print ("Embedding =", embedding)
         chunk["embedding"] = embedding.tolist()
 
     return all_chunks
