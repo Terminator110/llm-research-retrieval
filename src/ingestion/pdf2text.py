@@ -7,6 +7,7 @@ import pymupdf
 
 PDF_URLS = [
     "https://arxiv.org/pdf/2512.08592",
+    "https://arxiv.org/pdf/2506.21627",
 ]
 
 RAW_DIR = Path("data/raw/")

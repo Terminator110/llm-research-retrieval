@@ -32,8 +32,14 @@ def answer_question(question):
 
     results = retrieve(question)
 
+    print("table.query result:", results)
+
     documents = results["documents"][0]
-    print(f"Retrieved {documents} /n for the question: {question}")
+    metadatas = results["metadatas"][0]
+
+    print("Source Metadata : /n", metadatas)
+  
+    #print(f"Retrieved {documents} /n for the question: {question}")  #optionally print retrieved text
 
     context = "\n\n".join(documents)
 
@@ -48,7 +54,7 @@ def answer_question(question):
             """
 
     response = chat_client.responses.create(
-        model="qwen/qwen3.8-27b:free",
+        model="nvidia/nemotron-3.5-lightning:free",
         input=prompt
     )
 
