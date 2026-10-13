@@ -184,7 +184,7 @@ python src/retrieval/retrieval_bot.py
 Screenshot of the working chatbot :
 
 <!-- Replace the placeholder below after adding the actual screenshot. -->
-<!-- ![RAG chatbot demo](docs/images/chatbot-demo.png) -->
+![RAG chatbot demo](docs/images/rag_basic.jpg)
 
 ## Evaluation - In Progress
 
@@ -206,4 +206,3 @@ Evaluation results will be documented after the baseline measurements are comple
 - Improve retrieval quality based on evaluation results.
 - Investigate advanced retrieval and reranking strategies.
 - Compare the baseline against document-aware RAG approaches.
-- Document evaluation results and limitations.
