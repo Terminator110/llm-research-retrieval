@@ -32,8 +32,6 @@ def answer_question(question):
 
     results = retrieve(question)
 
-    print("table.query result:", results)
-
     documents = results["documents"][0]
     metadatas = results["metadatas"][0]
 
