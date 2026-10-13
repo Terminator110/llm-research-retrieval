@@ -181,7 +181,7 @@ python src/retrieval/retrieval_bot.py
 
 ## Demo
 
-A screenshot of the working chatbot will be added here.
+Screenshot of the working chatbot :
 
 <!-- Replace the placeholder below after adding the actual screenshot. -->
 <!-- ![RAG chatbot demo](docs/images/chatbot-demo.png) -->
@@ -207,7 +207,3 @@ Evaluation results will be documented after the baseline measurements are comple
 - Investigate advanced retrieval and reranking strategies.
 - Compare the baseline against document-aware RAG approaches.
 - Document evaluation results and limitations.
-
-## Project Goal
-
-Build a reproducible RAG baseline for research-paper question answering, with traceable sources and measurable retrieval quality.

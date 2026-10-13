@@ -34,8 +34,6 @@ def answer_question(question):
 
     documents = results["documents"][0]
     metadatas = results["metadatas"][0]
-
-    print("Source Metadata : /n", metadatas)
   
     #print(f"Retrieved {documents} /n for the question: {question}")  #optionally print retrieved text
 
@@ -56,7 +54,7 @@ def answer_question(question):
         input=prompt
     )
 
-    return response.output_text
+    return response.output_text, metadatas
 
 def main():
 
@@ -66,10 +64,18 @@ def main():
         if question.lower() in ["exit", "quit"]:
             break
 
-        answer = answer_question(question)
+        answer,source = answer_question(question)
 
         print("\nAnswer:")
         print(answer)
+        print("\nAnswer Sources:")
+        for i, metadata in enumerate(source[:3], start=1):
+            print(
+                f"\n{i}. Page       : {metadata['page']}"
+                f"\n   Document ID : {metadata['document_id']}"
+                f"\n   Chunk ID    : {metadata['chunk_index']}"
+                f"\n   Source File : {metadata['source_file']}"
+            )        
 
 
 if __name__ == "__main__":
